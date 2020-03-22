@@ -5,14 +5,19 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 
+
 # Importing the dataset
 dataset = pd.read_csv('Position_Salaries.csv')
 X = dataset.iloc[:, 1:2].values
 y = dataset.iloc[:, 2].values
 
+
+
 # Splitting the dataset into the Training set and Test set
 """from sklearn.cross_validation import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)"""
+
+
 
 # Feature Scaling
 """from sklearn.preprocessing import StandardScaler
@@ -22,13 +27,31 @@ X_test = sc_X.transform(X_test)
 sc_y = StandardScaler()
 y_train = sc_y.fit_transform(y_train)"""
 
-# Fitting Decision Tree Regression to the dataset
+
+
+# Fitting Decision Tree Regression to the dataset\
 from sklearn.tree import DecisionTreeRegressor
-regressor = DecisionTreeRegressor(random_state = 0)
-regressor.fit(X, y)
+regressor=DecisionTreeRegressor(random_state=0)
+regressor.fit(X,y)
+
+
+
 
 # Predicting a new result
-y_pred = regressor.predict(6.5)
+
+y_pred=regressor.predict([[6.5]])
+
+
+
+plt.scatter(X,y,color='red')
+#plt.plot(X,lin_reg2.predict(X_poly),color='blue') or we can make it suitable for all other type
+plt.plot(X,regressor.predict(X),color='blue')
+plt.title("Truth or Bluff(for polynomial regression)")
+plt.xlabel("position")
+plt.ylabel("salary")
+plt.show()
+
+
 
 # Visualising the Decision Tree Regression results (higher resolution)
 X_grid = np.arange(min(X), max(X), 0.01)
