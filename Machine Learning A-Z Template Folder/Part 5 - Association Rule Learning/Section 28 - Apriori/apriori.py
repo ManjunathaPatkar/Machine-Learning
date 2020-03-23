@@ -31,8 +31,3 @@ results=list(rules)
 
 
 
-
-
-
-
-
