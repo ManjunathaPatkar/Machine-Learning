@@ -45,10 +45,10 @@ plt.plot(range(1,11),wcss)
 plt.title("The elbow mwthod")
 plt.xlabel("No of clusters")
 plt.ylabel("WCSS")
-plt.show()
+plt.show() 
 
 
-# Fitting K-Means to the mall dataset
+# Fitting K-Means to the mall  customers dataset
 
 kmeans=KMeans(n_clusters=5,init='k-means++',random_state=0)
 y_kmeans=kmeans.fit_predict(X)
